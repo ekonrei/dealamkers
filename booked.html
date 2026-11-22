@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Booked | Dealmakers</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#03060F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%231F6BFF'/%3E%3Cstop offset='1' stop-color='%2338C8FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2303060F'/%3E%3Ccircle cx='32' cy='32' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
+<script>
+/* Calendly adds the booking details (name, email, time, answers) to this page's address.
+   Read them, then wipe them from the address bar right away, before anything else loads,
+   so they never end up in browser history, analytics or ad pixels. */
+window.DM_BOOKING=(function(){const q=new URLSearchParams(location.search),o={};q.forEach((v,k)=>{o[k]=v;});
+  if(location.search){try{history.replaceState(null,'',location.pathname+location.hash);}catch(e){}}return o;})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#03060F; --panel:#0A1226;
+  --line:rgba(120,160,255,.13); --line-2:rgba(120,160,255,.26);
+  --ink:#F2F6FF; --ink-2:#A9B6D1; --ink-3:#7584A3;
+  --blue:#1F6BFF; --blue-2:#3D8BFF; --cyan:#38C8FF; --ok:#22D3A0;
+  --display:'Saira',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+[hidden]{display:none!important;}
+html,body{overflow-x:clip;}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+.wrap{position:relative;max-width:920px;margin:0 auto;padding:0 22px;}
+.narrow{max-width:640px;margin-left:auto;margin-right:auto;}
+.ctr{text-align:center;}
+
+/* static background (same as the main page) */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg i{position:absolute;border-radius:50%;}
+.b1{width:900px;height:900px;left:50%;top:-540px;margin-left:-450px;background:radial-gradient(circle,rgba(31,107,255,.45),transparent 62%);}
+.b2{width:700px;height:700px;left:-300px;top:40%;background:radial-gradient(circle,rgba(56,200,255,.12),transparent 62%);}
+.b3{width:760px;height:760px;right:-340px;top:62%;background:radial-gradient(circle,rgba(80,90,255,.14),transparent 62%);}
+.bg .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(90,140,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(90,140,255,.07) 1px,transparent 1px);background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 55% at 50% 0%,#000 25%,transparent 75%);mask-image:radial-gradient(ellipse 75% 55% at 50% 0%,#000 25%,transparent 75%);}
+main{position:relative;z-index:2;}
+
+/* type */
+.kick{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-2);}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,4.6vw,40px);line-height:1.1;margin-top:10px;}
+.sec{margin-top:96px;}
+
+/* hero */
+.hero{padding:64px 0 0;}
+.check{position:relative;width:92px;height:92px;margin:0 auto;}
+.check::before{content:"";position:absolute;inset:-18px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,160,.32),transparent 65%);animation:glow 2.6s ease-in-out infinite;will-change:transform,opacity;}
+.check::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(34,211,160,.6);opacity:0;animation:ring 2.6s ease-out 1.2s infinite;will-change:transform,opacity;}
+.check svg{position:relative;display:block;width:92px;height:92px;}
+.check .c{stroke-dasharray:283;stroke-dashoffset:283;animation:draw .8s var(--ease) .2s forwards;}
+.check .t{stroke-dasharray:60;stroke-dashoffset:60;animation:draw .45s var(--ease) .85s forwards;}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes glow{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes ring{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(1.55)}}
+.status{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:8px 16px;border-radius:100px;border:1px solid rgba(34,211,160,.35);background:rgba(34,211,160,.07);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7FE8C8;}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok);}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,7.4vw,66px);line-height:1.04;letter-spacing:-.01em;margin-top:16px;}
+.lede{font-size:clamp(16px,2.3vw,18.5px);color:var(--ink-2);margin:14px auto 0;max-width:520px;}
+.when{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:14px 20px;border-radius:14px;border:1px solid rgba(120,185,255,.35);background:linear-gradient(180deg,rgba(61,139,255,.16),rgba(61,139,255,.05));font-weight:600;font-size:16px;color:#fff;box-shadow:0 14px 40px -18px rgba(31,107,255,.9);}
+.when svg{flex-shrink:0;}
+.when b{font-weight:600;}
+.when b span{white-space:nowrap;}
+.goal{margin:18px auto 0;max-width:560px;text-align:left;padding:18px 22px;border-radius:16px;border:1px solid var(--line-2);border-left:3px solid var(--blue-2);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01)),var(--panel);}
+.goal small{display:block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-2);}
+.goal q{display:block;margin-top:8px;font-family:var(--display);font-weight:700;font-size:19px;line-height:1.35;color:#fff;}
+.goal p{margin-top:6px;font-size:14px;color:var(--ink-2);}
+
+/* optional pre-call video */
+.vframe{margin-top:30px;border-radius:18px;padding:1.5px;background:linear-gradient(140deg,rgba(90,170,255,.9),rgba(61,139,255,.15) 40%,rgba(56,200,255,.7));box-shadow:0 30px 110px -30px rgba(31,107,255,.7);}
+.vframe .in-v{position:relative;aspect-ratio:16/9;border-radius:17px;overflow:hidden;background:#060C1F;}
+.vframe button{all:unset;position:absolute;inset:0;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.vframe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.75);transition:transform .6s var(--ease),filter .4s;}
+.vframe button:hover img{transform:scale(1.03);filter:brightness(.9);}
+.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.play{position:relative;width:78px;height:78px;border-radius:50%;background:linear-gradient(180deg,#4592FF,#1F6BFF);display:flex;align-items:center;justify-content:center;box-shadow:0 0 50px rgba(31,107,255,.9);transition:transform .3s var(--ease);}
+.play::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:1.5px solid rgba(90,170,255,.55);animation:ring 2.4s ease-out infinite;}
+.vframe button:hover .play{transform:scale(1.08);}
+
+/* before the call: timeline */
+.tl{margin-top:36px;text-align:left;}
+.tl li{list-style:none;position:relative;display:grid;grid-template-columns:46px 1fr;column-gap:20px;padding-bottom:30px;}
+.tl li:last-child{padding-bottom:0;}
+.tl li::before{content:"";position:absolute;left:22px;top:54px;bottom:8px;width:2px;border-radius:2px;background:linear-gradient(180deg,rgba(61,139,255,.65),rgba(61,139,255,.08));}
+.tl li:last-child::before{display:none;}
+.tl .n{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:19px;color:#fff;background:linear-gradient(180deg,#5AA2FF,#1F6BFF);box-shadow:0 0 0 6px rgba(31,107,255,.14),0 10px 26px -8px rgba(31,107,255,.95);}
+.tl h3{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.3;padding-top:8px;}
+.tl p{color:var(--ink-2);font-size:15.5px;margin-top:4px;}
+
+/* how the call goes */
+.cover{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;text-align:left;}
+.cv{padding:26px 24px;border-radius:18px;border:1px solid var(--line-2);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.01)),var(--panel);transition:transform .4s var(--ease),border-color .4s;}
+.cv:hover{transform:translateY(-4px);border-color:rgba(120,185,255,.5);}
+.cv .k{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--blue-2);}
+.cv h3{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.25;margin-top:10px;}
+.cv p{font-size:14.5px;color:var(--ink-2);margin-top:8px;}
+
+/* optional Discord band */
+.band{margin-top:96px;padding:42px 26px;border-radius:24px;border:1px solid rgba(120,185,255,.3);background:radial-gradient(120% 140% at 50% 0%,rgba(31,107,255,.3),transparent 60%),var(--panel);}
+.band p{color:var(--ink-2);font-size:16px;margin:10px auto 0;max-width:480px;}
+.cta-wrap{margin-top:26px;}
+.cta-float{position:relative;display:inline-block;isolation:isolate;animation:ctaBreathe 2.4s ease-in-out infinite;will-change:transform;}
+@keyframes ctaBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+.cta-float::before{content:"";position:absolute;inset:4px 8px;border-radius:18px;z-index:-1;background:linear-gradient(90deg,#1F6BFF,#38C8FF,#1F6BFF);filter:blur(22px);animation:ctaHalo 2.4s ease-in-out infinite;will-change:transform,opacity;}
+@keyframes ctaHalo{0%,100%{opacity:.4;transform:scale(.94)}50%{opacity:.95;transform:scale(1.1)}}
+.cring{position:absolute;inset:0;border-radius:14px;border:2px solid rgba(110,180,255,.85);pointer-events:none;z-index:-1;opacity:0;animation:cring 2.4s ease-out infinite;will-change:transform,opacity;}
+.cring.r2{animation-delay:1.2s;}
+@keyframes cring{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.07,1.4);opacity:0}}
+.cta{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:17px 30px 17px 36px;border-radius:14px;color:#fff;overflow:hidden;
+  background:linear-gradient(180deg,#5AA2FF 0%,#2F7BFF 45%,#1A5EF0 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -3px 0 rgba(0,25,100,.3),0 0 0 1px rgba(170,215,255,.75),0 14px 44px -8px rgba(40,130,255,.95);transition:filter .3s,transform .2s;}
+.cta:hover{filter:brightness(1.12) saturate(1.1);}
+.cta:active{transform:scale(.97);}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,0));pointer-events:none;z-index:1;}
+.cta::after{content:"";position:absolute;top:0;left:0;width:40%;height:100%;z-index:2;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:translateX(-160%) skewX(-20deg);animation:ctaSheen 2.4s ease-in-out infinite;pointer-events:none;will-change:transform;}
+@keyframes ctaSheen{0%{transform:translateX(-160%) skewX(-20deg)}55%,100%{transform:translateX(360%) skewX(-20deg)}}
+.cta>*{position:relative;z-index:3;}
+.cta b{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.04em;text-transform:uppercase;text-shadow:0 1px 2px rgba(0,30,110,.45);}
+.cta .arr{flex-shrink:0;animation:nudge 1.2s var(--ease) infinite;}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+
+/* reschedule note + footer */
+.note{margin-top:70px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14.5px;color:var(--ink-2);}
+.note svg{flex-shrink:0;}
+.back{margin-top:10px;font-size:14px;color:var(--ink-3);}
+.back a{color:#7FB4FF;text-decoration:underline;text-underline-offset:3px;}
+.back a:hover{color:#fff;}
+footer{margin-top:70px;border-top:1px solid var(--line);padding:30px 0 40px;}
+.legal{font-size:12px;color:var(--ink-3);line-height:1.7;text-align:center;max-width:780px;margin:0 auto;}
+.links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--ink-2);}
+.links a:hover{color:#fff;}
+
+/* entrance + scroll reveals */
+.in{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+body.ready .in{opacity:1;transform:none;}
+.dl1{transition-delay:.15s}.dl2{transition-delay:.28s}.dl3{transition-delay:.4s}.dl4{transition-delay:.52s}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.rv.on{opacity:1;transform:none;}
+
+@media(max-width:760px){.cover{grid-template-columns:1fr;}}
+@media(max-width:560px){
+  .hero{padding-top:44px;}
+  .sec,.band{margin-top:76px;}
+  .when{font-size:15px;padding:12px 16px;}
+  .tl li{grid-template-columns:40px 1fr;column-gap:16px;}
+  .tl .n{width:40px;height:40px;font-size:17px;}
+  .tl li::before{left:19px;top:48px;}
+  .tl h3{font-size:19px;padding-top:6px;}
+  .cta-float{display:block;}.cta{display:flex;width:100%;padding:16px 18px;}.cta b{font-size:15.5px;}
+  .note{align-items:flex-start;text-align:left;}
+}
+</style>
+<noscript><style>.in,.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><div class="grid"></div></div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero ctr">
+    <div class="wrap">
+      <div class="check" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle class="c" cx="50" cy="50" r="45" stroke="#22D3A0" stroke-width="4"/>
+          <path class="t" d="M31 51.5l12.5 12.5L70 37.5" stroke="#22D3A0" stroke-width="6"/>
+        </svg>
+      </div>
+      <div class="status in dl1"><i></i>Call confirmed</div>
+      <h1 class="in dl2">You're Booked<span id="nm"></span>.</h1>
+      <p class="lede in dl3" id="lede">Your call with Kaden is locked in. Check your email for your time and the calendar invite.</p>
+      <div class="in dl4" id="whenWrap" hidden>
+        <div class="when"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FB4FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><b id="whenText"></b></div>
+      </div>
+      <div class="goal in dl4" id="goalBox" hidden><small>Your #1 goal</small><q id="goalText"></q><p>We'll build your plan around this on the call.</p></div>
+    </div>
+  </section>
+
+  <!-- OPTIONAL: pre-call video (only shows once PRECALL_VIDEO is set) -->
+  <section class="sec ctr" id="videoSec" hidden>
+    <div class="wrap narrow" style="max-width:820px">
+      <div class="kick rv">Start here</div>
+      <h2 class="rv">Watch This Before We Talk</h2>
+      <div class="vframe rv"><div class="in-v" id="videoBox"></div></div>
+    </div>
+  </section>
+
+  <!-- BEFORE THE CALL -->
+  <section class="sec ctr">
+    <div class="wrap narrow">
+      <div class="kick rv">Before our call</div>
+      <h2 class="rv">3 Things To Do Before We Talk</h2>
+      <ol class="tl">
+        <li class="rv"><span class="n">1</span><div><h3>Accept the calendar invite</h3><p>Calendly just emailed it to you. Accept it so the call is on your calendar. Don't see it? Check your spam and promotions folders.</p></div></li>
+        <li class="rv"><span class="n">2</span><div><h3>Be somewhere quiet, on time</h3><p>It's just you and me, 1:1. Pick a spot where you can talk openly without distractions.</p></div></li>
+        <li class="rv"><span class="n">3</span><div><h3>Know your goal and your numbers</h3><p>What you want in the next 90 days, what's held you back so far, and what you're able to put into it.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- HOW THE CALL GOES -->
+  <section class="sec ctr">
+    <div class="wrap">
+      <div class="kick rv">On the call</div>
+      <h2 class="rv">Here's How The Call Goes</h2>
+      <div class="cover">
+        <div class="cv rv"><div class="k">01</div><h3>Where you're at</h3><p>We look at where you are right now and what's kept you from closing deals.</p></div>
+        <div class="cv rv"><div class="k">02</div><h3>Your 90-day plan</h3><p>We map out what your first 90 days could look like, step by step.</p></div>
+        <div class="cv rv"><div class="k">03</div><h3>Is it a fit?</h3><p>If it is, I'll walk you through how the Inner Circle works and the investment. If not, I'll tell you straight up.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONAL: Discord (only shows once DISCORD_URL is set) -->
+  <section class="ctr" id="discordSec" hidden>
+    <div class="wrap">
+      <div class="band rv">
+        <div class="kick">While you wait</div>
+        <h2>Join The Free Dealmakers Discord</h2>
+        <p>See what other members are working on and get a feel for the community before we talk.</p>
+        <div class="cta-wrap"><span class="cta-float"><i class="cring"></i><i class="cring r2"></i><a class="cta" id="discordBtn" href="#" target="_blank" rel="noopener"><b>Join The Free Discord</b><svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap ctr">
+    <p class="note rv"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FB4FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg><span>Something came up? Use the reschedule link in your confirmation email so your spot can go to someone else.</span></p>
+    <p class="back">Want to look back over the page? <a href="index.html">Go back to Dealmakers</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="legal">© 2026 EKON Investments LLC. Results shown are not typical. Individual results vary based on effort, experience, capital and market conditions. Dealmakers is education and mentorship, not legal, tax or financial advice.</p>
+    <div class="links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="privacy-choices.html">Privacy &amp; advertising choices</a></div>
+  </div>
+</footer>
+
+<script>
+// ===== EDIT THESE =====
+const DISCORD_URL    = 'https://discord.com/invite/dealmakers';   // your Discord invite. The Discord section stays hidden until you set it
+const PRECALL_VIDEO  = '';   // YouTube video ID for a "watch before our call" video, e.g. 'dQw4w9WgXcQ'. Blank = section hidden
+const META_PIXEL_ID  = '';   // same IDs as index.html. Blank = off
+const GOOGLE_TAG_ID  = '';
+const GOAL_ANSWER    = 'answer_3';   // which Calendly question is "What's your #1 goal for the next 90 days?" (3rd question = answer_3)
+// ======================
+
+/* ---------- booking details from Calendly (already removed from the address bar) ---------- */
+(function(){
+  const d=window.DM_BOOKING||{};
+  const first=(d.invitee_first_name||(d.invitee_full_name||'').trim().split(/\s+/)[0]||'').slice(0,40);
+  if(first){document.getElementById('nm').textContent=', '+first.charAt(0).toUpperCase()+first.slice(1);}
+  const start=d.event_start_time?new Date(d.event_start_time):null;
+  if(start&&!isNaN(start)){
+    const day=start.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+    const time=start.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZoneName:'short'});
+    const end=d.event_end_time?new Date(d.event_end_time):null,mins=end&&!isNaN(end)?Math.round((end-start)/60000):0;
+    const a=document.createElement('span'),b=document.createElement('span');
+    a.textContent=day+' at';b.textContent=time+(mins>0&&mins<=240?' · '+mins+' min':'');
+    document.getElementById('whenText').append(a,' ',b);
+    document.getElementById('lede').textContent='Your call with Kaden is locked in. The calendar invite is in your email.';
+    document.getElementById('whenWrap').hidden=false;
+  }
+  const goal=(d[GOAL_ANSWER]||'').trim();
+  if(goal.length>2){document.getElementById('goalText').textContent=goal.length>220?goal.slice(0,217).trim()+'…':goal;document.getElementById('goalBox').hidden=false;}
+})();
+
+/* ---------- optional sections: only show what's set up ---------- */
+(function(){
+  const id=(PRECALL_VIDEO||'').replace(/[^\w-]/g,'');
+  if(id){
+    const box=document.getElementById('videoBox'),b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Play video');
+    b.innerHTML='<img src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="" loading="lazy"><span class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>';
+    b.addEventListener('click',()=>{const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.title='Before our call';b.replaceWith(f);});
+    box.appendChild(b);document.getElementById('videoSec').hidden=false;
+  }
+  if(DISCORD_URL&&!/YOUR-INVITE/.test(DISCORD_URL)){document.getElementById('discordBtn').href=DISCORD_URL;document.getElementById('discordSec').hidden=false;}
+})();
+
+/* ---------- entrance + scroll reveals ---------- */
+requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('ready')));
+(function(){const els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('on'));return;}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(e=>{const sib=[...e.parentElement.children].filter(x=>x.classList.contains('rv'));e.style.transitionDelay=Math.min(sib.indexOf(e),4)*.08+'s';io.observe(e);});})();
+
+/* ---------- advertising gate (same rules as index.html and privacy-choices.html: keep in sync) ---------- */
+(function(){
+  const KEY='dm_ads_choice';
+  function regionBlocked(){let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}
+    if(!tz||/^(UTC|GMT|Etc\/)/.test(tz))return true;
+    if(/^Europe\//.test(tz))return true;
+    return /^(Atlantic\/(Reykjavik|Canary|Madeira|Azores|Faroe)|Arctic\/Longyearbyen|Asia\/(Nicosia|Famagusta)|Indian\/(Reunion|Mayotte)|America\/(Guadeloupe|Martinique|Cayenne|Marigot|St_Barthelemy))$/.test(tz);}
+  function browserOptOut(){return navigator.globalPrivacyControl===true||navigator.doNotTrack==='1'||window.doNotTrack==='1';}
+  function savedOff(){try{return localStorage.getItem(KEY)==='off';}catch(e){return false;}}
+  if(regionBlocked()||browserOptOut()||savedOff())return;
+  // only count a booking when the visitor actually arrived from Calendly (a refresh doesn't count twice)
+  const d=window.DM_BOOKING||{},fromCalendly=!!(d.event_start_time||d.invitee_uuid);
+  if(META_PIXEL_ID){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('set','autoConfig',false,META_PIXEL_ID);fbq('init',META_PIXEL_ID);fbq('track','PageView');
+    if(fromCalendly)fbq('track','Schedule');}
+  if(GOOGLE_TAG_ID){
+    const g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(GOOGLE_TAG_ID);document.head.appendChild(g);
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',GOOGLE_TAG_ID);
+    if(fromCalendly)gtag('event','generate_lead',{method:'calendly'});}
+})();
+</script>
+</body>
+</html>
